@@ -6,7 +6,12 @@
     placeholder="Введите задачу"
     v-model="deal"
   />
-  <ul class="todos__body" v-if="todos.length !== 0">
+  <transition-group
+    name="item"
+    class="todos__body"
+    v-if="todos.length !== 0"
+    tag="ul"
+  >
     <li class="todo__item" v-for="t in todos" :key="t.id">
       <div>
         <button
@@ -32,7 +37,7 @@
         <img src="../assets/archive.png" alt="В архив" />
       </button>
     </li>
-  </ul>
+  </transition-group>
   <div v-else class="empty">Список пуст, добавьте новую задачу</div>
 </template>
 
@@ -56,12 +61,14 @@ export default {
     }
 
     const addDeal = () => {
-      store.commit('createDeal', {
-        body: deal.value,
-        status: 'active',
-        id: new Date().getTime(),
-      })
-      deal.value = ''
+      if (deal.value) {
+        store.commit('createDeal', {
+          body: deal.value,
+          status: 'active',
+          id: new Date().getTime(),
+        })
+        deal.value = ''
+      }
     }
 
     return {

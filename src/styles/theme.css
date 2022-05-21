@@ -19,6 +19,9 @@ ul {
 
 footer {
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -26,8 +29,9 @@ h1 {
 }
 
 #app {
+  max-width: 1000px;
+  margin: 0 auto;
   display: grid;
-  justify-items: center;
   grid-template-rows: 1fr 100px;
   min-height: 100vh;
 }
@@ -54,6 +58,7 @@ h1 {
 
 .empty {
   padding: 20px;
+  text-align: center;
 }
 
 .title {
@@ -217,4 +222,36 @@ h1 {
 
 .github > img:hover {
   transform: scale(1.2);
+}
+
+/*Animation*/
+.item-leave-active {
+  transition: all 0.5s ease;
+}
+.item-leave-to {
+  opacity: 0;
+  transform: translateX(500px);
+}
+.item-enter-active {
+  transition: all 0.5s ease;
+}
+.item-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.archive-delete-leave-active {
+  transition: all 0.5s ease;
+}
+.archive-delete-leave-to {
+  opacity: 0;
+  transform: translateX(500px);
+}
+
+.archive-back-leave-active {
+  transition: all 0.5s ease;
+}
+.archive-back-leave-to {
+  opacity: 0;
+  transform: translateX(-500px);
 }
