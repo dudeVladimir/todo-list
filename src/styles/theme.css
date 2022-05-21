@@ -17,6 +17,14 @@ ul {
   list-style-type: none;
 }
 
+footer {
+  margin-top: 20px;
+}
+
+h1 {
+  width: 100%;
+}
+
 #app {
   display: grid;
   justify-items: center;
@@ -85,6 +93,11 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.todo__item > div {
+  display: flex;
+  align-items: center;
 }
 
 .todo__item.archive {
@@ -194,4 +207,14 @@ ul {
   border-bottom: 1px solid #53535333;
   margin-bottom: 5px;
   text-align: center;
+}
+
+.github > img {
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
+}
+
+.github > img:hover {
+  transform: scale(1.2);
 }

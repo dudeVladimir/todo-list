@@ -11,7 +11,13 @@
       </div>
     </div>
   </div>
-  <footer><a href=""></a></footer>
+  <footer>
+    <div>
+      <a href="https://github.com/dudeVladimir/todo-list" class="github"
+        ><img src="./assets/GitHub-Mark-64px.png" alt="GitHub"
+      /></a>
+    </div>
+  </footer>
 </template>
 
 <script>
