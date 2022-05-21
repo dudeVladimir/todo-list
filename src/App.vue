@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <h1 class="title">ToDo List</h1>
+    <div class="todos">
+      <todos-component v-if="isTodos"></todos-component>
+      <archive-component v-else></archive-component>
+      <div class="todos__footer">
+        <button class="todos__btn" @click="isTodos = !isTodos">
+          {{ isTodos === true ? 'В архив' : 'На главную' }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer><a href=""></a></footer>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodosComponent from './components/TodosComponent.vue'
+import ArchiveComponent from './components/ArchiveComponent.vue'
+import { ref } from '@vue/reactivity'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  setup() {
+    const isTodos = ref(true)
+
+    return {
+      isTodos,
+    }
+  },
+  components: { TodosComponent, ArchiveComponent },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
